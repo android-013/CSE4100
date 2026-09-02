@@ -9,6 +9,7 @@ The course focuses on developing practical web development and design skills usi
 ## Project Structure
 
 - `day-01-profile/` - HTML
+- `day-03-css/` - CSS
 - `index.html` - Main page or project entry point
 
 ## Objectives
