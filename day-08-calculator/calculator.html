@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1 id="display">0</h1>
+
+    <button onclick="addNumber('1')">1</button>
+    <button onclick="addNumber('2')">2</button>
+    <button onclick="addNumber('3')">3</button>
+    <button onclick="addNumber('4')">4</button>
+    <button onclick="addNumber('5')">5</button>
+    <br>
+
+    <button onclick="addNumber('6')">6</button>
+    <button onclick="addNumber('7')">7</button>
+    <button onclick="addNumber('8')">8</button>
+    <button onclick="addNumber('9')">9</button>
+    <button onclick="addNumber('0')">0</button>
+    <br>
+    
+    <button onclick="addOperator('+')">+</button>
+    <button onclick="addOperator('-')">-</button>
+    <button onclick="addOperator('*')">x</button>
+    <button onclick="addOperator('/')">:-</button>
+    <button onclick="clear()">C</button>
+    <br>
+
+    <button onclick="calculate()">=</button>
+
+    <script>
+        let expression = "";
+
+        function addNumber(number) {
+            expression += number;
+            document.getElementById("display").innerText = expression;
+        }
+
+        function addOperator(operator) {
+            if (expression === "") return;
+
+            expression += operator;
+            document.getElementById("display").innerText = expression;
+        }
+
+        function clear() {
+            expression = "";
+            document.getElementById("display").innerText = "0";
+        }
+
+        function calculate() {
+            try {
+                let result = eval(expression);
+
+                if (!Number.isFinite(result)) {
+                    throw new Error("Invalid");
+                }
+
+                document.getElementById("display").innerText = result;
+                expression = String(result);
+            } catch {
+                document.getElementById("display").innerText = "Error";
+                expression = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
